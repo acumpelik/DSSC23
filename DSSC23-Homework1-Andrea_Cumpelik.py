@@ -94,16 +94,14 @@ Does your proposed transformation alter the covariance matrix?
 
 '''
 
+# Generate some 1D data: data belongs to R^1
+x_t = np.random.random_sample((10))
+x_bar = x_t.mean()
+sigma = x_t.std()
+# ,x2,x3,x4,x5,x6
+
 # For the 1D case:
 z_t = (x_t - x_bar) / sigma
-
-# To generalize:
-z_t = (x_t - x_bar) / cov
-# The problem of generalizing is difficult because instead of variance, we now
-# have a covariance matrix.
-
-
-
 
 
 
