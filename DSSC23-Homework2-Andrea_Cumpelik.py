@@ -18,15 +18,49 @@ putative spike, and plot the number of spikes as a function of the threshold. By
 examining the trace in detail, can you claim that any specific threshold is a good
 choice for spike detection?
 """
-%matplotlib auto
+# %matplotlib auto
 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
+from scipy.stats import norm
+import os
+datadir = '/home/acumpeli/Documents/DSSC23'
+os.chdir(datadir)
+
 trace1 = np.loadtxt(fname=('./trace1.txt')) # import the data
 
 # %%
 # Plot trace 1
+plt.figure(figsize=(10,4))
 plt.plot(trace1)
+plt.title('Voltage trace 1')
+plt.show()
 
 # Plot a subset
-plt.plot(trace1[80000:105000])
+plt.figure(figsize=(10,4))
+plt.plot(trace1[0:80_000])
+plt.title('Voltage trace 1, subset')
+plt.show()
+
+"""
+Plot a pdf
+"""
+
+# Bin the data
+Vmin = trace1.min()
+
+# Plot a histogram
+
+
+
+
+
+
+
+# print(norm.support())
+
+# plt.plot(len(trace1), norm.pdf(trace1))
+plt.figure(figsize=(10,5))
+plt.plot(trace1, norm.pdf(trace1))
+plt.show()
